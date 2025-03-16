@@ -12,7 +12,7 @@
     --color-accent-focus: #1a9489;
     --color-natural-focus: #242a33;
     --color-gradiant-first: #34eaa0;
-    --color-gradiant-second: #0fa2e9
+    --color-gradiant-second: #0fa2e9;
 }
 
 @plugin "daisyui" {

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Figtree } from 'next/font/google';
 import './globals.css';
 import localFont from 'next/font/local';
+import Header from '@/components/header/Header';
+import Footer from '@/components/footer/Footer';
 const figtree = Figtree({
     display: 'swap',
     subsets: ['latin'],
@@ -54,11 +56,14 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html>
-            <body
-                className={`${figtree.className} ${yekanbakh.className} antialiased`}
-            >
+        <html
+            dir='rtl'
+            className={`${figtree.className} ${yekanbakh.className} antialiased dark`}
+        >
+            <body className='bg-white text-base-100 dark:bg-base-100 dark:text-base-content grid min-h-screen grid-rows-[80px_1fr_auto]'>
+                <Header />
                 {children}
+                <Footer />
             </body>
         </html>
     );
