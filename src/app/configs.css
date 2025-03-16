@@ -43,3 +43,8 @@
     --color-error: #f87272;
     --color-error-content: ##311c1b;
 }
+
+@utility container {
+    margin: 0 auto;
+    padding: 0 1rem;
+}
