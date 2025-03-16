@@ -43,3 +43,7 @@
   --color-error: #f87272;
   --color-error-content: ##311c1b;
 }
+
+html {
+  font-family: var(--font-figtree);
+}
