@@ -11,8 +11,8 @@
   --color-secondary-focus: #503de2;
   --color-accent-focus: #1a9489;
   --color-natural-focus: #242a33;
-  --color-gradiant-first: #34eaa0;
-  --color-gradiant-second: #0fa2e9;
+  --color-gradient-first: #34eaa0;
+  --color-gradient-second: #0fa2e9;
 
   --breakpoint-xs: 26rem;
   --breakpoint-sm: 36rem;
@@ -67,4 +67,12 @@ html {
 
 :lang(en) {
   font-family: var(--font-figtree);
+}
+
+@utility bg-hero-pattern {
+  background: url(/images/tile.svg) no-repeat
+}
+
+.gradient {
+  @apply bg-gradient-to-r from-gradient-first to-gradient-second text-transparent bg-clip-text;
 }

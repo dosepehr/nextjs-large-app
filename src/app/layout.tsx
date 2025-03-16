@@ -62,7 +62,7 @@ export default function RootLayout({
         >
             <body className='bg-white text-base-100 dark:bg-base-100 dark:text-base-content grid min-h-screen grid-rows-[80px_1fr_auto]'>
                 <Header />
-                {children}
+                <main>{children}</main>
                 <Footer />
             </body>
         </html>
