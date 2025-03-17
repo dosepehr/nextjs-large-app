@@ -27,7 +27,7 @@
 }
 
 @plugin "daisyui/theme" {
-  color-scheme: "dark";
+  color-scheme: "light";
   default: true;
   --color-base-100: #1d232a;
   --color-base-200: #191e24;
@@ -41,7 +41,7 @@
   --color-accent-content: #FFFFFF;
   --color-neutral: #2a323c;
   --color-neutral-content: ##303030;
-  --color-info: 3abff8;
+  --color-info: #3abff8;
   --color-info-content: #18272f;
   --color-success: #36d399;
   --color-success-content: #162a21;
