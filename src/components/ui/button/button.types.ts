@@ -10,5 +10,5 @@ export type ButtonTypes = ButtonHTMLAttributes<HTMLButtonElement> &
         isLink?: boolean;
     };
 
-export type ButtonVariant = 'soft' | 'outline' | 'dash' | 'active';
+export type ButtonVariant = 'default' | 'soft' | 'outline' | 'dash' | 'active';
 export type ButtonShape = 'default' | 'wide' | 'circle' | 'square' | 'block';

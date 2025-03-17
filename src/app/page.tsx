@@ -33,11 +33,13 @@ export default function Home() {
                     height={521}
                 />
             </div>
-            <Button theme='info' variant='dash' isLoading={true} loadingType='dots'>
+            <Button
+                theme='error'
+                variant='outline'
+                loadingType='infinity'
+            >
                 ثبت نام
             </Button>
-            
         </section>
     );
 }
-

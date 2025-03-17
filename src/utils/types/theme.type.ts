@@ -1,4 +1,5 @@
 export type Theme =
+    | 'default'
     | 'neutral'
     | 'primary'
     | 'secondary'
