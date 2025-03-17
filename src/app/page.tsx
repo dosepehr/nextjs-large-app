@@ -1,3 +1,4 @@
+import Button from '@/components/ui/button';
 import Image from 'next/image';
 
 export default function Home() {
@@ -32,6 +33,10 @@ export default function Home() {
                     height={521}
                 />
             </div>
+            <Button theme='info' variant='dash' isLoading={true} loadingType='dots'>
+                ثبت نام
+            </Button>
+            
         </section>
     );
 }
