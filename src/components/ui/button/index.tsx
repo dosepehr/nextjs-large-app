@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { ButtonShape, ButtonTypes, ButtonVariant } from './button.types';
+import { ButtonShape, ButtonProps, ButtonVariant } from './button.types';
 import classNames from 'classnames';
 import { Theme } from '@/utils/types/theme.type';
 import { Size } from '@/utils/types/size.type';
-import { LoadingType } from '@/utils/types/loading-behavior.type';
+import Loading from '../loading';
 
 const variantClasses: Record<ButtonVariant, string> = {
     default: '',
@@ -38,15 +38,7 @@ const shapeClasses: Record<ButtonShape, string> = {
     square: 'btn-square',
     wide: 'btn-wide',
 };
-const loadingClasses: Record<LoadingType, string> = {
-    ball: 'loading-ball',
-    bars: 'loading-bars',
-    dots: 'loading-dots',
-    infinity: 'loading-infinity',
-    ring: 'loading-ring',
-    spinner: 'loading-spinner',
-};
-const Button: FC<ButtonTypes> = ({
+const Button: FC<ButtonProps> = ({
     theme = 'default',
     variant = 'default',
     size = 'md',
@@ -74,17 +66,12 @@ const Button: FC<ButtonTypes> = ({
         { [`${sizeClasses[size]}`]: size },
         { [`${shapeClasses[shape]}`]: shape }
     );
-    const loadingClassNames = classNames(
-        'loading',
-
-        { [`${loadingClasses[loadingType]}`]: loadingType }
-    );
     return (
         <button type={type} className={classes} {...rest}>
             {isLoading ? (
                 <>
                     {loadingText}
-                    <span className={loadingClassNames}></span>
+                    <Loading size={size} theme={theme} type={loadingType} />
                 </>
             ) : (
                 children
