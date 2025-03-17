@@ -1,8 +1,8 @@
 import { Size } from './size.type';
-import { Variant } from './variant.type';
+import { Theme } from './theme.type';
 export type ComponentBase = {
     isDisabled?: boolean;
     classname?: string;
-    variant?: Variant;
+    theme?: Theme;
     size?: Size;
 };

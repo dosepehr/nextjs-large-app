@@ -1,4 +1,4 @@
-export type Variant =
+export type Theme =
     | 'neutral'
     | 'primary'
     | 'secondary'
