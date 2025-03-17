@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { ButtonShape, ButtonProps, ButtonVariant } from './button.types';
 import classNames from 'classnames';
-import { Theme } from '@/utils/types/theme.type';
-import { Size } from '@/utils/types/size.type';
+import { Theme } from '@/utils/types/components/theme.type';
+import { Size } from '@/utils/types/components/size.type';
 import Loading from '../loading';
 
 const variantClasses: Record<ButtonVariant, string> = {

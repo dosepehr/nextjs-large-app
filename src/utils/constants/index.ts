@@ -1,4 +1,4 @@
-import { NavigationMenuItem } from '../types/navigation-menu-items.type';
+import { NavigationMenuItem } from '../types/components/navigation-menu-items.type';
 
 export const navigationMenuItems: NavigationMenuItem[] = [
     {

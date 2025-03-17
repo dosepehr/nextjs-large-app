@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { LoadingProps } from './loading.types';
 import classNames from 'classnames';
-import { LoadingType } from '@/utils/types/loading-behavior.type';
-import { Theme } from '@/utils/types/theme.type';
-import { Size } from '@/utils/types/size.type';
+import { LoadingType } from '@/utils/types/components/loading-behavior.type';
+import { Theme } from '@/utils/types/components/theme.type';
+import { Size } from '@/utils/types/components/size.type';
 
 const loadingClasses: Record<LoadingType, string> = {
     ball: 'loading-ball',
