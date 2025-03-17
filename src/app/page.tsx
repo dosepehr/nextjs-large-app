@@ -34,9 +34,9 @@ export default function Home() {
                 />
             </div>
             <Button
-                theme='error'
-                variant='outline'
-                loadingType='infinity'
+                theme='secondary'
+                variant='default'
+     
             >
                 ثبت نام
             </Button>
