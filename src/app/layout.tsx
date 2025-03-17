@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Figtree } from 'next/font/google';
 import './globals.css';
 import localFont from 'next/font/local';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
+import Header from '@/components/templates/header';
+import Footer from '@/components/templates/footer';
 const figtree = Figtree({
     display: 'swap',
     subsets: ['latin'],
