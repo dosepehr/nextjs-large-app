@@ -36,7 +36,7 @@ const CourseCard: FC<CourseCardProps> = ({
             </div>
             <div className='px-3 pb-2 mb-auto'>
                 <Link
-                    href={`/course/${slug}`}
+                    href={`/courses/${slug}`}
                     className='text-lg font-bold text-white/75 hover:text-white transition-colors'
                 >
                     {title}
@@ -54,7 +54,7 @@ const CourseCard: FC<CourseCardProps> = ({
             </div>
             <Link
                 className='group hover:text-white duration-300 transition-all justify-center p-3 font-bold  flex items-center gap-2 py-4 text-current border-t dark:border-base-content dark:border-opacity-10'
-                href={`/course/${slug}`}
+                href={`/courses/${slug}`}
             >
                 مشاهده جزئیات دوره
                 <IconArrowLeftFill

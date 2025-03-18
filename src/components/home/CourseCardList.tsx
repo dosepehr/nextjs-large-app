@@ -3,7 +3,7 @@ import React from 'react';
 import CourseCard from './CourseCard';
 
 const getNewestCourses = async (count: number): Promise<CourseSummary[]> => {
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     const coursesRes = await fetch(
         `https://api.classbon.com/api/courses/newest/${count}`,
         {
