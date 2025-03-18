@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
 import Badge from '../ui/badge';
+import { IconArrowLeftFill, IconClock } from '../icons';
 
 type CourseCardProps = CourseSummary;
 
@@ -42,6 +43,7 @@ const CourseCard: FC<CourseCardProps> = ({
                 <p className='my-4 leading-6'>{subTitle}</p>
                 <div className='flex items-center justify-between'>
                     <Badge theme='warning' variant='soft'>
+                        <IconClock width={20} height={20} />
                         {duration}
                     </Badge>
                     <Badge theme='success' variant='soft'>
@@ -51,10 +53,14 @@ const CourseCard: FC<CourseCardProps> = ({
             </div>
 
             <Link
-                className='justify-center p-3 mt-auto font-bold  flex items-center gap-2 py-4 text-current border-t dark:border-base-content dark:border-opacity-10'
+                className='group hover:text-white duration-300 transition-all justify-center p-3 mt-auto font-bold  flex items-center gap-2 py-4 text-current border-t dark:border-base-content dark:border-opacity-10'
                 href={`/course/${slug}`}
             >
                 مشاهده جزئیات دوره
+                <IconArrowLeftFill
+                    fill='currentColor'
+                    className='group-hover:text-white group-hover:-translate-x-2 duration-300 transition-all'
+                />
             </Link>
         </div>
     );
