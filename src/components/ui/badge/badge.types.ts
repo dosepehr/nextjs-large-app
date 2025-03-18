@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ComponentBase } from './component-base.type';
+import { ComponentBase } from '@/utils/types/components/component-base.type';
 
 export type BadgeProps = Omit<ComponentBase, 'isDisabled'> & {
     children?: ReactNode;

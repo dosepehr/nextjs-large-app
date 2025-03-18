@@ -1,8 +1,8 @@
-import { BadgeProps, BadgeVariant } from '@/utils/types/components/badge.types';
 import { Size } from '@/utils/types/components/size.type';
 import { Theme } from '@/utils/types/components/theme.type';
 import classNames from 'classnames';
 import React, { FC } from 'react';
+import { BadgeProps, BadgeVariant } from './badge.types';
 
 const sizeClasses: Record<Size, string> = {
     xs: 'badge-xs',

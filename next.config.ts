@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
                 protocol: 'https',
                 hostname: 'classbon-blog.s3.ir-thr-at1.arvanstorage.ir',
             },
+            {
+                protocol: 'https',
+                hostname: 'img.daisyui.com',
+            },
         ],
     },
 };
