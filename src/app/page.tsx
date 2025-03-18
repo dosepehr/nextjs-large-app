@@ -7,11 +7,12 @@ import { BlogSummary } from '@/utils/types/DTOs/blog-summary.interface';
 import BlogCardList from '@/components/home/BlogCardList';
 import { Suspense } from 'react';
 import Loading from '@/components/ui/loading';
+import { IconArrowLeftFill } from '@/components/icons';
+import Button from '@/components/ui/button';
 
 export const dynamic = 'force-dynamic'; //make page dynamic
 
 const Home = async () => {
-
     const getNewestBlogs = async (count: number): Promise<BlogSummary[]> => {
         const blogsRes = await fetch(
             `https://api.classbon.com/api/blog/newest/${count}`,
@@ -24,9 +25,7 @@ const Home = async () => {
         const newestBlogs = await blogsRes.json();
         return newestBlogs;
     };
-    const [newestBlogs] = await Promise.all([
-        getNewestBlogs(4),
-    ]);
+    const [newestBlogs] = await Promise.all([getNewestBlogs(4)]);
     return (
         <>
             <HomeHero />
@@ -40,12 +39,29 @@ const Home = async () => {
                         برای به‌روز موندن، یاد گرفتن نکته‌های تازه ضروری‌ه!
                     </p>
                 </div>
-                <Suspense fallback={<Loading/>}>
-                    <CourseCardList/>
+                <Suspense fallback={<Loading />}>
+                    <CourseCardList />
                 </Suspense>
             </section>
             <CoursesIntro />
-            <BlogCardList blogs={newestBlogs} />
+            <section className='container py-20'>
+                <div className='flex flex-col xl:flex-row gap-4 justify-center xl:justify-between items-center'>
+                    <div className='text-center xl:text-right'>
+                        <h2 className='text-2xl font-extrabold'>
+                            تازه‌ترین مقاله‌های آموزشی
+                        </h2>
+                        <p className='mt-3 text-lg'>
+                            به رایگان، به‌روزترین مقاله‌های دنیای تکنولوژی رو در
+                            اختیارت می‌ذاریم؛ چون پیشرفتت برامون مهمه!
+                        </p>
+                    </div>
+                    <Button theme='neutral' className='font-semibold'>
+                        همه مقاله‌ها
+                        <IconArrowLeftFill fill='currentColor' />
+                    </Button>
+                </div>
+                <BlogCardList blogs={newestBlogs} />
+            </section>
         </>
     );
 };
