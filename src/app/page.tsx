@@ -1,7 +1,7 @@
 import HomeHero from '../components/home/HomeHero';
 import CourseCardList from '@/components/home/CourseCardList';
 import FeaturesList from '@/components/home/FeaturesList';
-import { homeFeatures } from '@/utils/constants';
+import { homeFeatures, testimonials } from '@/utils/constants';
 import CoursesIntro from '@/components/home/CoursesIntro';
 import { BlogSummary } from '@/utils/types/DTOs/blog-summary.interface';
 import BlogCardList from '@/components/home/BlogCardList';
@@ -9,6 +9,7 @@ import { Suspense } from 'react';
 import { IconArrowLeftFill } from '@/components/icons';
 import Button from '@/components/ui/button';
 import CourseCardsPlaceholder from '@/components/ui/placeholders/CourseCardsPlaceholder';
+import { TestimonialList } from '@/components/home/TestimonalList';
 
 export const dynamic = 'force-dynamic'; //make page dynamic
 
@@ -62,6 +63,7 @@ const Home = async () => {
                 </div>
                 <BlogCardList blogs={newestBlogs} />
             </section>
+            <TestimonialList testimonials={testimonials} />
         </>
     );
 };
