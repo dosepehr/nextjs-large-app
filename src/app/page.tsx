@@ -6,9 +6,9 @@ import CoursesIntro from '@/components/home/CoursesIntro';
 import { BlogSummary } from '@/utils/types/DTOs/blog-summary.interface';
 import BlogCardList from '@/components/home/BlogCardList';
 import { Suspense } from 'react';
-import Loading from '@/components/ui/loading';
 import { IconArrowLeftFill } from '@/components/icons';
 import Button from '@/components/ui/button';
+import CourseCardsPlaceholder from '@/components/ui/placeholders/CourseCardsPlaceholder';
 
 export const dynamic = 'force-dynamic'; //make page dynamic
 
@@ -39,7 +39,7 @@ const Home = async () => {
                         برای به‌روز موندن، یاد گرفتن نکته‌های تازه ضروری‌ه!
                     </p>
                 </div>
-                <Suspense fallback={<Loading />}>
+                <Suspense fallback={<CourseCardsPlaceholder />}>
                     <CourseCardList />
                 </Suspense>
             </section>
