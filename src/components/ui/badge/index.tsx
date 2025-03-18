@@ -34,7 +34,7 @@ const Badge: FC<BadgeProps> = ({
     classname,
     size = 'md',
     theme = 'default',
-    variant = 'default',
+    variant = 'soft',
 }) => {
     const classes = classNames(
         'badge',

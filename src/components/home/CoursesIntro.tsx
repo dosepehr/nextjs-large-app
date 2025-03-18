@@ -21,14 +21,22 @@ const CoursesIntro = () => {
                     آموزش‌های تخصصی و کاملاً کاربردی کنارت هستیم.
                 </p>
                 <div className='flex flex-col lg:flex-row items-center gap-3 justify-center'>
-                    <Button theme='primary' size='lg' className='mt-7 group hover:text-white'>
+                    <Button
+                        theme='primary'
+                        size='lg'
+                        className='mt-7 group hover:text-white'
+                    >
                         دوره‌های ری اکت و نکست‌ جی‌اس
                         <IconArrowLeftFill
                             fill='currentColor'
                             className='group-hover:text-white group-hover:-translate-x-2 duration-300 transition-all'
                         />
                     </Button>
-                    <Button theme='neutral' size='lg' className='mt-7 hover:text-white'>
+                    <Button
+                        theme='neutral'
+                        size='lg'
+                        className='mt-7 hover:text-white'
+                    >
                         مقالات ری اکت و نکست‌ جی‌اس
                     </Button>
                 </div>

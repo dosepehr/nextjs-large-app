@@ -4,14 +4,40 @@ import CourseCardList from '@/components/home/CourseCardList';
 import FeaturesList from '@/components/home/FeaturesList';
 import { homeFeatures } from '@/utils/constants';
 import CoursesIntro from '@/components/home/CoursesIntro';
+import { BlogSummary } from '@/utils/types/DTOs/blog-summary.interface';
+import BlogCardList from '@/components/home/BlogCardList';
 
 const Home = async () => {
-    const res = await fetch(`https://api.classbon.com/api/courses/newest/4`, {
-        next: {
-            revalidate: 120,
-        },
-    });
-    const newestCourses: CourseSummary[] = await res.json();
+    const getNewestCourses = async (
+        count: number
+    ): Promise<CourseSummary[]> => {
+        const coursesRes = await fetch(
+            `https://api.classbon.com/api/courses/newest/${count}`,
+            {
+                next: {
+                    revalidate: 120,
+                },
+            }
+        );
+        const newestCourses = await coursesRes.json();
+        return newestCourses;
+    };
+    const getNewestBlogs = async (count: number): Promise<BlogSummary[]> => {
+        const blogsRes = await fetch(
+            `https://api.classbon.com/api/blog/newest/${count}`,
+            {
+                next: {
+                    revalidate: 120,
+                },
+            }
+        );
+        const newestBlogs = await blogsRes.json();
+        return newestBlogs;
+    };
+    const [newestCourses, newestBlogs] = await Promise.all([
+        getNewestCourses(4),
+        getNewestBlogs(4),
+    ]);
     return (
         <>
             <HomeHero />
@@ -28,6 +54,7 @@ const Home = async () => {
                 <CourseCardList courses={newestCourses} />
             </section>
             <CoursesIntro />
+            <BlogCardList blogs={newestBlogs} />
         </>
     );
 };
