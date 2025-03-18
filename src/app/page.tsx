@@ -3,6 +3,7 @@ import HomeHero from '../components/home/HomeHero';
 import CourseCardList from '@/components/home/CourseCardList';
 import FeaturesList from '@/components/home/FeaturesList';
 import { homeFeatures } from '@/utils/constants';
+import CoursesIntro from '@/components/home/CoursesIntro';
 
 const Home = async () => {
     const res = await fetch(`https://api.classbon.com/api/courses/newest/4`, {
@@ -26,6 +27,7 @@ const Home = async () => {
                 </div>
                 <CourseCardList courses={newestCourses} />
             </section>
+            <CoursesIntro />
         </>
     );
 };
