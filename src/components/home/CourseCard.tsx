@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import Badge from '../ui/badge';
 import { IconArrowLeftFill, IconClock } from '../icons';
+import Price from '../ui/price';
 
 type CourseCardProps = CourseSummary;
 
@@ -33,7 +34,7 @@ const CourseCard: FC<CourseCardProps> = ({
                     {level}
                 </Badge>
             </div>
-            <div className='px-3 pb-2'>
+            <div className='px-3 pb-2 mb-auto'>
                 <Link
                     href={`/course/${slug}`}
                     className='text-lg font-bold text-white/75 hover:text-white transition-colors'
@@ -41,19 +42,18 @@ const CourseCard: FC<CourseCardProps> = ({
                     {title}
                 </Link>
                 <p className='my-4 leading-6'>{subTitle}</p>
-                <div className='flex items-center justify-between'>
+            </div>
+            <div className='px-3 pb-2' >
+                <div className='flex items-center justify-between mt-auto'>
                     <Badge theme='warning' variant='soft'>
                         <IconClock width={20} height={20} />
                         {duration}
                     </Badge>
-                    <Badge theme='success' variant='soft'>
-                        {basePrice || 'رایگان'}
-                    </Badge>
+                    <Price price={basePrice} />
                 </div>
             </div>
-
             <Link
-                className='group hover:text-white duration-300 transition-all justify-center p-3 mt-auto font-bold  flex items-center gap-2 py-4 text-current border-t dark:border-base-content dark:border-opacity-10'
+                className='group hover:text-white duration-300 transition-all justify-center p-3 font-bold  flex items-center gap-2 py-4 text-current border-t dark:border-base-content dark:border-opacity-10'
                 href={`/course/${slug}`}
             >
                 مشاهده جزئیات دوره
