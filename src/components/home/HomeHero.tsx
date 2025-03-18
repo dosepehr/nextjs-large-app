@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
+import Button from '../ui/button';
+import { IconArrowLeftFill } from '../icons';
 
 const HomeHero = () => {
     return (
@@ -17,7 +19,18 @@ const HomeHero = () => {
                         باتجربهٔ کلاسبن می‌تونی بدون محدودیت به قله‌های بالاتر
                         صعود کنی. ما همیشه هواتو داریم.
                     </p>
-
+                    <div className='mt-5 flex justify-center xl:justify-start gap-4'>
+                        <Button theme='primary' size='lg' className='group'>
+                            دوره‌های ری‌اکت و نکست
+                            <IconArrowLeftFill
+                                fill='currentColor'
+                                className='group-hover:text-white group-hover:-translate-x-2 duration-300 transition-all'
+                            />
+                        </Button>
+                        <Button theme='neutral' size='lg'>
+                            مشاوره برنامه‌نویسی
+                        </Button>
+                    </div>
                     <Image
                         src='/images/frameworks.png'
                         className='grayscale mt-4 opacity-70 m-auto xl:m-0'
