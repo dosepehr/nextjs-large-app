@@ -1,4 +1,3 @@
-import { CourseSummary } from '@/utils/types/DTOs/course-summary.interface';
 import HomeHero from '../components/home/HomeHero';
 import CourseCardList from '@/components/home/CourseCardList';
 import FeaturesList from '@/components/home/FeaturesList';
@@ -6,22 +5,13 @@ import { homeFeatures } from '@/utils/constants';
 import CoursesIntro from '@/components/home/CoursesIntro';
 import { BlogSummary } from '@/utils/types/DTOs/blog-summary.interface';
 import BlogCardList from '@/components/home/BlogCardList';
+import { Suspense } from 'react';
+import Loading from '@/components/ui/loading';
+
+export const dynamic = 'force-dynamic'; //make page dynamic
 
 const Home = async () => {
-    const getNewestCourses = async (
-        count: number
-    ): Promise<CourseSummary[]> => {
-        const coursesRes = await fetch(
-            `https://api.classbon.com/api/courses/newest/${count}`,
-            {
-                next: {
-                    revalidate: 120,
-                },
-            }
-        );
-        const newestCourses = await coursesRes.json();
-        return newestCourses;
-    };
+
     const getNewestBlogs = async (count: number): Promise<BlogSummary[]> => {
         const blogsRes = await fetch(
             `https://api.classbon.com/api/blog/newest/${count}`,
@@ -34,8 +24,7 @@ const Home = async () => {
         const newestBlogs = await blogsRes.json();
         return newestBlogs;
     };
-    const [newestCourses, newestBlogs] = await Promise.all([
-        getNewestCourses(4),
+    const [newestBlogs] = await Promise.all([
         getNewestBlogs(4),
     ]);
     return (
@@ -51,7 +40,9 @@ const Home = async () => {
                         برای به‌روز موندن، یاد گرفتن نکته‌های تازه ضروری‌ه!
                     </p>
                 </div>
-                <CourseCardList courses={newestCourses} />
+                <Suspense fallback={<Loading/>}>
+                    <CourseCardList/>
+                </Suspense>
             </section>
             <CoursesIntro />
             <BlogCardList blogs={newestBlogs} />
