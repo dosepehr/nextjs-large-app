@@ -4,6 +4,7 @@ import React from 'react';
 import { CourseCommentList } from '../_types/course-comment.interface';
 import Loading from '@/components/ui/loading';
 import { useParams } from 'next/navigation';
+import Comment from '@/components/ui/comment';
 
 const CourseComments = () => {
     const { slug } = useParams();
@@ -17,7 +18,7 @@ const CourseComments = () => {
     return (
         <div>
             {comments?.data.map((comment) => (
-                <p key={comment.id}>{comment.commentText}</p>
+                <Comment {...comment} key={comment.id} />
             ))}
         </div>
     );
