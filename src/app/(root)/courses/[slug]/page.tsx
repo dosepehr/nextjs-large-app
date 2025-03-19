@@ -1,6 +1,7 @@
 import { CourseDetails } from '@/utils/types/DTOs/courseDetails.interface';
 import { CourseAside } from './_components/CourseAside';
 import CourseComments from './_components/CourseComments';
+import Video from '@/components/ui/video';
 
 export async function generateStaticParams() {
     const slugs = await fetch(
@@ -30,7 +31,9 @@ const page = async ({ params }: { params: { slug: string } }) => {
                     {course.subTitle}
                 </h2>
 
-                <div className='mt-5'>Video Player Component</div>
+                <div className='mt-5'>
+                    {course.videoUrl && <Video src={course.videoUrl} />}
+                </div>
             </div>
             <div className='col-span-10 xl:col-span-3'>
                 <CourseAside {...course} />
