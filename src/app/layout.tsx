@@ -4,6 +4,7 @@ import './globals.css';
 import localFont from 'next/font/local';
 import Header from '@/components/templates/header';
 import Footer from '@/components/templates/footer';
+import QueryProvider from '@/utils/api/QueryProvider';
 const figtree = Figtree({
     display: 'swap',
     subsets: ['latin'],
@@ -61,9 +62,11 @@ export default function RootLayout({
             className={`${figtree.className} ${yekanbakh.className} antialiased dark`}
         >
             <body className='bg-white text-base-100 dark:bg-base-100 dark:text-base-content grid min-h-screen grid-rows-[80px_1fr_auto]'>
-                <Header />
-                <main>{children}</main>
-                <Footer />
+                <QueryProvider>
+                    <Header />
+                    <main>{children}</main>
+                    <Footer />
+                </QueryProvider>
             </body>
         </html>
     );
