@@ -76,3 +76,19 @@ html {
 .gradient {
   @apply bg-gradient-to-r from-gradient-first to-gradient-second text-transparent bg-clip-text;
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
