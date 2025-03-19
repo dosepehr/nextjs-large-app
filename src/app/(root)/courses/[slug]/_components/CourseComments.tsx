@@ -8,6 +8,7 @@ import { useInfinite } from '@/utils/api/hooks/useInfinite';
 import { useInView } from 'react-intersection-observer';
 import Button from '@/components/ui/button';
 import { IconRefresh } from '@/components/icons';
+import Alert from '@/components/ui/alert';
 
 const CourseComments = () => {
     const { ref, inView } = useInView({});
@@ -31,7 +32,9 @@ const CourseComments = () => {
     if (error) {
         return (
             <>
-                <p>خطا در برقراری ارتباط با سرور</p>
+                <Alert hasIcon variant='dash' >
+                    خطا در برقراری ارتباط با سرور
+                </Alert>
                 <div className='text-center mt-3'>
                     <Button
                         theme='success'

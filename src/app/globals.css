@@ -40,7 +40,7 @@
   --color-accent: #1FB2A5;
   --color-accent-content: #FFFFFF;
   --color-neutral: #2a323c;
-  --color-neutral-content: ##303030;
+  --color-neutral-content: #303030;
   --color-info: #3abff8;
   --color-info-content: #18272f;
   --color-success: #36d399;
@@ -48,7 +48,7 @@
   --color-warning: #fbbd23;
   --color-warning-content: #312612;
   --color-error: #f87272;
-  --color-error-content: ##311c1b;
+  --color-error-content: #311c1b;
 }
 
 @utility container {
