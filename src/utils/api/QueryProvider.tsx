@@ -20,7 +20,8 @@ const queryClient = new QueryClient({
             retry: false,
             refetchOnWindowFocus: false,
             throwOnError: false,
-            gcTime: 1000 * 60 * 60 * 24, // 24h
+            gcTime: 1000 * 60 * 60 * 24, // 24h after this time, if data is inactive,react query deletes the cache,must be bigger that staleTime
+            staleTime: 1000 * 60 * 60 * 5, // 5h after this time,we send request again & cache the result
         },
     },
 });
