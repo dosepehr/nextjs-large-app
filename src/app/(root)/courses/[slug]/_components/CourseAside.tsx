@@ -17,7 +17,7 @@ import {
     IconStudents,
 } from '@/components/icons';
 import { FC } from 'react';
-import { CourseAsideProps } from './course-aside.type';
+import { CourseAsideProps } from '../_types/course-aside.type';
 
 const levelTheme: Record<CourseLevel, Theme> = {
     0: 'warning',
