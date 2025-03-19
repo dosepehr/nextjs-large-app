@@ -6,6 +6,8 @@ import { useParams } from 'next/navigation';
 import Comment from '@/components/ui/comment';
 import { useInfinite } from '@/utils/api/hooks/useInfinite';
 import { useInView } from 'react-intersection-observer';
+import Button from '@/components/ui/button';
+import { IconRefresh } from '@/components/icons';
 
 const CourseComments = () => {
     const { ref, inView } = useInView({});
@@ -14,7 +16,9 @@ const CourseComments = () => {
         data: comments,
         hasNextPage,
         fetchNextPage,
-        isFetchingNextPage,
+        error,
+        refetch,
+        isFetching,
     } = useInfinite<CourseCommentList>({
         queryKey: ['courseComments', slug],
         url: `/courses/${slug}/comments`,
@@ -24,6 +28,25 @@ const CourseComments = () => {
             fetchNextPage();
         }
     }, [inView, hasNextPage, fetchNextPage]);
+    if (error) {
+        return (
+            <>
+                <p>خطا در برقراری ارتباط با سرور</p>
+                <div className='text-center mt-3'>
+                    <Button
+                        theme='success'
+                        className='font-semibold'
+                        variant='soft'
+                        shape='wide'
+                        onClick={() => refetch()}
+                    >
+                        <IconRefresh />
+                        تلاش مجدد
+                    </Button>
+                </div>
+            </>
+        );
+    }
     return (
         <div>
             {comments?.pages.map((currentPage) => (
@@ -33,7 +56,7 @@ const CourseComments = () => {
                     ))}
                 </Fragment>
             ))}
-            {(isFetchingNextPage || hasNextPage) && (
+            {(isFetching || hasNextPage) && (
                 <div ref={ref}>
                     <Loading />
                 </div>
