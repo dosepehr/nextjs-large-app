@@ -1,5 +1,6 @@
 import { CourseDetails } from '@/utils/types/DTOs/courseDetails.interface';
 import { CourseAside } from './_components/CourseAside';
+import CourseComments from './_components/CourseComments';
 
 export async function generateStaticParams() {
     const slugs = await fetch(
@@ -34,7 +35,9 @@ const page = async ({ params }: { params: { slug: string } }) => {
             <div className='col-span-10 xl:col-span-3'>
                 <CourseAside {...course} />
             </div>
-            <div className='col-span-10 xl:col-span-6 bg-blue-500'>f</div>
+            <div className='col-span-10 xl:col-span-6 '>
+                <CourseComments />
+            </div>
             <div className='col-span-10 xl:col-span-4 bg-green-500'>f</div>
         </div>
     );
