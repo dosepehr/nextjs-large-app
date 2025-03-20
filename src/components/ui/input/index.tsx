@@ -34,10 +34,10 @@ const Input: FC<InputProps> = ({
         'input',
         'w-full',
         {
-            [`${themeClasses[theme]}`]: theme,
+            [`input-${themeClasses[theme]}`]: theme,
         },
         {
-            [`${sizeClasses[size]}`]: size,
+            [`input-${sizeClasses[size]}`]: size,
         },
         className
     );
