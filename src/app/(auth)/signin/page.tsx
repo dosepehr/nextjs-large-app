@@ -6,9 +6,13 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { SignIn } from './_types/signin.type';
 import { useRouter } from 'next/navigation';
+import { useNotificationStore } from '@/utils/store/notification.store';
 
 const Page = () => {
     const router = useRouter();
+    const showNotification = useNotificationStore(
+        (state) => state.showNotification
+    );
     const {
         register,
         handleSubmit,
@@ -26,6 +30,11 @@ const Page = () => {
     });
 
     const onSubmit = (data: SignIn) => {
+        showNotification({
+            message: 'omadi',
+            type: 'success',
+            duration: 3000,
+        });
         mutate(data);
     };
 
