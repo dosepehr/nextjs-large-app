@@ -1,8 +1,9 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 import { InputProps } from './input.type';
 import { Size } from '@/utils/types/components/size.type';
 import { Theme } from '@/utils/types/components/theme.type';
 import classNames from 'classnames';
+import { FieldValues } from 'react-hook-form';
 
 const sizeClasses: Record<Size, string> = {
     xs: 'input-xs',
@@ -11,6 +12,7 @@ const sizeClasses: Record<Size, string> = {
     lg: 'input-lg',
     xl: 'input-xl',
 };
+
 const themeClasses: Record<Theme, string> = {
     accent: 'input-accent',
     error: 'input-error',
@@ -23,25 +25,57 @@ const themeClasses: Record<Theme, string> = {
     warning: 'input-warning',
     default: '',
 };
-const Input: FC<InputProps> = ({
-    className,
-    type = 'text',
-    theme = 'ghost',
-    size = 'md',
-    ...rest
-}) => {
+
+function InputComponent<T extends FieldValues>(
+    props: InputProps<T>,
+    ref: React.Ref<HTMLInputElement>
+) {
+    const {
+        className,
+        type = 'text',
+        theme = 'ghost',
+        size = 'md',
+        errors,
+        name,
+        ...rest
+    } = props;
+
+    const fieldError = name && errors ? errors[name] : null;
     const classes = classNames(
         'input',
         'w-full',
         {
-            [`input-${themeClasses[theme]}`]: theme,
+            [`${themeClasses[theme]}`]: theme,
         },
         {
-            [`input-${sizeClasses[size]}`]: size,
+            '!input-error': fieldError,
+        },
+        {
+            [`${sizeClasses[size]}`]: size,
         },
         className
     );
-    return <input type={type} className={classes} {...rest} />;
-};
+
+    return (
+        <div className='flex flex-col'>
+            <input
+                type={type}
+                className={classes}
+                {...rest}
+                ref={ref}
+                name={name as string}
+            />
+            {fieldError && (
+                <span className='text-red-500 text-sm mt-1'>
+                    {fieldError.message as string}
+                </span>
+            )}
+        </div>
+    );
+}
+
+const Input = forwardRef(InputComponent) as unknown as (<T extends FieldValues>(
+    props: InputProps<T> & { ref?: React.Ref<HTMLInputElement> }
+) => React.ReactElement) & { displayName?: string };
 
 export default Input;
