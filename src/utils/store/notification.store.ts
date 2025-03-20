@@ -32,3 +32,6 @@ export const useNotificationStore = create<NotificationStore>()(
         },
     }))
 );
+
+export const getNotificatons = () =>
+    useNotificationStore.getState().notifications;

@@ -7,6 +7,8 @@ import {
     QueryClientProvider,
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { showToast } from '../funcs/showToast';
+import { getNotificatons } from '../store/notification.store';
 
 const queryClient = new QueryClient({
     queryCache: new QueryCache({
@@ -16,9 +18,9 @@ const queryClient = new QueryClient({
         },
     }),
     mutationCache: new MutationCache({
-        onError: (error) => {
-            console.log(error);
-            // show notification
+        onError: () => {
+            console.log(getNotificatons());
+            showToast();
         },
     }),
     defaultOptions: {

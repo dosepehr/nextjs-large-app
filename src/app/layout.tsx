@@ -6,6 +6,8 @@ import Header from '@/components/templates/header';
 import Footer from '@/components/templates/footer';
 import QueryProvider from '@/utils/api/QueryProvider';
 import NextTopLoader from 'nextjs-toploader';
+import { Bounce, ToastContainer } from 'react-toastify';
+
 const figtree = Figtree({
     display: 'swap',
     subsets: ['latin'],
@@ -64,6 +66,19 @@ export default function RootLayout({
         >
             <body className='bg-white text-base-100 dark:bg-base-100 dark:text-base-content grid min-h-screen grid-rows-[80px_1fr_auto]'>
                 <NextTopLoader showSpinner={false} />
+                <ToastContainer
+                    position='top-right'
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick={false}
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme='light'
+                    transition={Bounce}
+                />
                 <QueryProvider>
                     <Header />
                     <main>{children}</main>
