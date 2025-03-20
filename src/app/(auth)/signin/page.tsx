@@ -1,11 +1,10 @@
-import Link from 'next/link';
+import Input from '@/components/ui/input';
 import React from 'react';
 
 const page = () => {
     return (
         <div>
-            sign in
-            <Link href={'/verify'} >verify</Link>
+            <Input theme='primary' />
         </div>
     );
 };
