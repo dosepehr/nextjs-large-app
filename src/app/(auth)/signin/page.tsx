@@ -1,19 +1,32 @@
 'use client';
 import Button from '@/components/ui/button';
 import Input from '@/components/ui/input';
+import { useCustomMutation } from '@/utils/api/hooks/useCustomMutation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { SignIn } from './_types/signin.type';
+import { useRouter } from 'next/navigation';
 
 const Page = () => {
+    const router = useRouter();
     const {
         register,
         handleSubmit,
         formState: { errors },
+        getValues,
     } = useForm<SignIn>();
 
+    const { mutate, isPending } = useCustomMutation<SignIn>({
+        mutationKey: ['signin'],
+        url: '/signin',
+        method: 'POST',
+        onSuccess() {
+            router.push(`/verify?mobile=${getValues('mobile')}`);
+        },
+    });
+
     const onSubmit = (data: SignIn) => {
-        console.log(data);
+        mutate(data);
     };
 
     return (
@@ -43,7 +56,7 @@ const Page = () => {
                     errors={errors}
                     name='mobile'
                 />
-                <Button type='submit' theme='primary'>
+                <Button type='submit' theme='primary' isLoading={isPending}>
                     تایید و دریافت کد
                 </Button>
             </form>

@@ -66,7 +66,7 @@ function InputComponent<T extends FieldValues>(
                 name={name as string}
             />
             {fieldError && (
-                <span className='text-red-500 text-sm mt-1'>
+                <span className='text-error text-sm mt-1'>
                     {fieldError.message as string}
                 </span>
             )}

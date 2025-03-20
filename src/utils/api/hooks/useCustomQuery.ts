@@ -2,7 +2,7 @@ import { useQuery, QueryKey } from '@tanstack/react-query';
 import { readData } from '../service';
 import { AxiosRequestHeaders } from 'axios';
 
-export const useGet = <T>({
+export const useCustomQuery = <T>({
     queryKey,
     url,
     headers,

@@ -1,6 +1,7 @@
 'use client';
 import React, { FC, PropsWithChildren } from 'react';
 import {
+    MutationCache,
     QueryCache,
     QueryClient,
     QueryClientProvider,
@@ -14,7 +15,12 @@ const queryClient = new QueryClient({
             // show notification
         },
     }),
-
+    mutationCache: new MutationCache({
+        onError: (error) => {
+            console.log(error);
+            // show notification
+        },
+    }),
     defaultOptions: {
         queries: {
             retry: false,

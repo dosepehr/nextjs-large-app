@@ -71,7 +71,7 @@ const Button: FC<ButtonProps> = ({
             {isLoading ? (
                 <>
                     {loadingText}
-                    <Loading size={size} theme={theme} type={loadingType} />
+                    <Loading size={size} type={loadingType} />
                 </>
             ) : (
                 children
