@@ -5,14 +5,14 @@ import { Theme } from '@/utils/types/components/theme.type';
 import { Size } from '@/utils/types/components/size.type';
 import Loading from '../loading';
 
-const variantClasses: Record<ButtonVariant, string> = {
+export const variantClasses: Record<ButtonVariant, string> = {
     default: '',
     active: 'btn-active',
     dash: 'btn-dash',
     outline: 'btn-outline',
     soft: 'btn-soft',
 };
-const themeClasses: Record<Theme, string> = {
+export const themeClasses: Record<Theme, string> = {
     accent: 'btn-accent',
     error: 'btn-error',
     ghost: 'btn-ghost',
@@ -24,14 +24,14 @@ const themeClasses: Record<Theme, string> = {
     warning: 'btn-warning',
     default: '',
 };
-const sizeClasses: Record<Size, string> = {
+export const sizeClasses: Record<Size, string> = {
     xs: 'btn-xs',
     sm: 'btn-sm',
     md: '',
     lg: 'btn-lg',
     xl: 'btn-xl',
 };
-const shapeClasses: Record<ButtonShape, string> = {
+export const shapeClasses: Record<ButtonShape, string> = {
     default: '',
     block: 'btn-block',
     circle: 'btn-circle',
@@ -60,7 +60,7 @@ const Button: FC<ButtonProps> = ({
             'pointer-events-none opacity-80': isLoading,
         },
         { 'btn-disabled': isDisabled },
-        { [`btn-${isLink}`]: isLink },
+        { [`btn-link`]: isLink },
         { [`${variantClasses[variant]}`]: variant },
         { [`${themeClasses[theme]}`]: theme },
         { [`${sizeClasses[size]}`]: size },
@@ -81,3 +81,4 @@ const Button: FC<ButtonProps> = ({
 };
 
 export default Button;
+

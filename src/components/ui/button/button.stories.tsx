@@ -1,7 +1,36 @@
 import { Meta, StoryObj } from '@storybook/react';
-import Button from '.';
+import Button, {
+    shapeClasses,
+    sizeClasses,
+    themeClasses,
+    variantClasses,
+} from '.';
+
+const variantOptions = Object.keys(variantClasses);
+const themeOptions = Object.keys(themeClasses);
+const sizeOptions = Object.keys(sizeClasses);
+const shapeOptions = Object.keys(shapeClasses);
 const meta: Meta<typeof Button> = {
     component: Button,
+    argTypes: {
+        variant: {
+            options: variantOptions,
+            control: { type: 'select' },
+        },
+        theme: {
+            options: themeOptions,
+            control: { type: 'select' },
+        },
+        size: {
+            options: sizeOptions,
+            control: { type: 'select' },
+        },
+        shape: {
+            options: shapeOptions,
+            control: { type: 'select' },
+        },
+    },
+
     tags: ['autodocs'],
     decorators: [
         (Story) => {
@@ -12,6 +41,12 @@ const meta: Meta<typeof Button> = {
 };
 
 type Story = StoryObj<typeof Button>;
+
+export const Main: Story = {
+    args: {
+        children: 'button',
+    },
+};
 
 export const BrandColors: Story = {
     render: () => (
