@@ -1,12 +1,15 @@
 import { Meta, StoryObj } from '@storybook/react';
 import Button from '.';
-
 const meta: Meta<typeof Button> = {
     component: Button,
     tags: ['autodocs'],
+    decorators: [
+        (Story) => {
+            document.documentElement.classList.add('dark');
+            return <Story />;
+        },
+    ],
 };
-
-export default meta;
 
 type Story = StoryObj<typeof Button>;
 
@@ -14,13 +17,61 @@ export const BrandColors: Story = {
     render: () => (
         <>
             <Button>default</Button>
+            <Button theme='accent'>accent</Button>
+            <Button theme='error'>error</Button>
+            <Button theme='ghost'>ghost</Button>
+            <Button theme='info'>info</Button>
+            <Button theme='secondary'>secondary</Button>
+            <Button theme='primary'>primary</Button>
+            <Button theme='neutral'>neutral</Button>
+            <Button theme='success'>success</Button>
         </>
     ),
 };
-export const StateColors: Story = {
+export const buttonSize: Story = {
     render: () => (
         <>
-            <Button theme='info'>info</Button>
+            <Button size='xs'>xs</Button>
+            <Button size='sm'>sm</Button>
+            <Button size='md'>md</Button>
+            <Button size='lg'>lg</Button>
+            <Button size='xl'>xl</Button>
         </>
     ),
 };
+export const variantButtons: Story = {
+    render: () => (
+        <>
+            <Button variant='default'>default</Button>
+            <Button variant='active'>active</Button>
+            <Button variant='dash'>dash</Button>
+            <Button variant='outline'>outline</Button>
+            <Button variant='soft'>soft</Button>
+        </>
+    ),
+};
+export const shapeButtons: Story = {
+    render: () => (
+        <>
+            <Button shape='default'>default</Button>
+            <Button shape='circle'>circle</Button>
+            <Button shape='square'>square</Button>
+            <Button shape='wide'>wide</Button>
+            <div className='max-w-20'>
+                <Button shape='block'>block</Button>
+            </div>
+        </>
+    ),
+};
+export const statusButtons: Story = {
+    render: () => (
+        <>
+            <Button isDisabled>disabled</Button>
+            <Button isLink>link</Button>
+            <Button isLoading>loading</Button>
+        </>
+    ),
+};
+
+export default meta;
+
