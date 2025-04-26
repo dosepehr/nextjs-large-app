@@ -7,6 +7,9 @@ import Footer from '@/components/templates/footer';
 import QueryProvider from '@/utils/api/QueryProvider';
 import NextTopLoader from 'nextjs-toploader';
 import { Bounce, ToastContainer } from 'react-toastify';
+import('../utils/mocks').then(({ setupMocks }) => {
+    setupMocks();
+});
 
 const figtree = Figtree({
     display: 'swap',
