@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import Loading from '.';
 const meta: Meta<typeof Loading> = {
     component: Loading,
+    title: 'components/loading',
     tags: ['autodocs'],
     decorators: [
         (Story) => {

@@ -12,7 +12,7 @@ const sizeOptions = Object.keys(sizeClasses);
 const shapeOptions = Object.keys(shapeClasses);
 const meta: Meta<typeof Button> = {
     component: Button,
-    title: 'Button',
+    title: 'components/Button',
     parameters: {
         layout: 'center',
     },
