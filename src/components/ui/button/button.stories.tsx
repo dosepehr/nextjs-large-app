@@ -12,12 +12,19 @@ const sizeOptions = Object.keys(sizeClasses);
 const shapeOptions = Object.keys(shapeClasses);
 const meta: Meta<typeof Button> = {
     component: Button,
+    title: 'Button',
     parameters: {
         layout: 'center',
     },
     argTypes: {
         variant: {
+            children: {
+                name: 'Label',
+                control: 'text',
+                description: 'Text to display on the button',
+            },
             options: variantOptions,
+            description: 'variant options',
             control: { type: 'select' },
         },
         theme: {
@@ -34,7 +41,7 @@ const meta: Meta<typeof Button> = {
         },
     },
 
-    tags: ['autodocs'],
+    // tags: ['autodocs'],
     decorators: [
         (Story) => {
             document.documentElement.classList.add('dark');
@@ -48,6 +55,7 @@ type Story = StoryObj<typeof Button>;
 export const Main: Story = {
     args: {
         children: 'button',
+        theme: 'error',
     },
 };
 
