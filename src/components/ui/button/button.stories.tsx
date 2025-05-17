@@ -44,7 +44,7 @@ const meta: Meta<typeof Button> = {
     // tags: ['autodocs'],
     decorators: [
         (Story) => {
-            document.documentElement.classList.add('dark');
+            // document.documentElement.classList.add('dark');
             return <Story />;
         },
     ],
